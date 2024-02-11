@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">AnimeApp</string>
+    <string name="bottom_news">Главная</string>
+    <string name="bottom_search">Поиск</string>
+    <string name="newsimage">NewsImage</string>
+    <string name="episodes">серия</string>
+</resources>

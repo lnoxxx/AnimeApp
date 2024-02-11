@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.lnoxx.animeapp.fragments.homeFragment.HomeFragment"
+        android:label="Главная"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_animeViewFragment"
+            app:destination="@id/animeViewFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.lnoxx.animeapp.fragments.searchFragment.SearchFragment"
+        android:label="Поиск"
+        tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/animeViewFragment"
+        android:name="com.lnoxx.animeapp.fragments.animeViewFragment.AnimeViewFragment"
+        android:label="Информация"
+        tools:layout="@layout/fragment_anime_view" />
+</navigation>

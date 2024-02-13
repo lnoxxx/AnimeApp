@@ -1,12 +1,13 @@
 package com.lnoxx.animeapp.jikanAPI
 
+import com.lnoxx.animeapp.jikanAPI.jikanDataClasses.AnimeDataResponse
 import com.lnoxx.animeapp.jikanAPI.jikanDataClasses.AnimeTopResponse
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class JikanMainClass {
+object JikanMainClass {
     private val loggingInterceptor = HttpLoggingInterceptor()
     init {
         loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
@@ -21,5 +22,8 @@ class JikanMainClass {
 
     suspend fun getAnimeTop(filter: String): AnimeTopResponse{
         return jikanAPI.getTopAnime(filter)
+    }
+    suspend fun getFullAnimeInfo(animeId: Int): AnimeDataResponse{
+        return jikanAPI.getFullAnimeInfo(animeId)
     }
 }

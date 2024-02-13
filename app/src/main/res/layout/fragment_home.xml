@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         app:tabGravity="fill"
         app:tabIndicatorGravity="bottom"
+        android:contentDescription="@string/types_of_anime_category"
         app:tabMode="auto"/>
 
     <androidx.viewpager2.widget.ViewPager2

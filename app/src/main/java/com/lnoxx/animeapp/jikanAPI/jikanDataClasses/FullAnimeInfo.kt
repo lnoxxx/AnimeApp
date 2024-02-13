@@ -1,25 +1,24 @@
 package com.lnoxx.animeapp.jikanAPI.jikanDataClasses
 
 data class AnimeDataResponse(
+    val data: AnimeData
+)
+
+data class AnimeData(
     val mal_id: Int,
     val url: String,
-    val images: ImagesResponse,
-    val trailer: TrailerResponse,
-    val approved: Boolean,
-    val titles: List<TitleResponse>,
+    val images: ImagesFull,
+    val trailer: Trailer,
     val title: String,
-    val title_english: String,
-    val title_japanese: String,
-    val title_synonyms: List<String>,
     val type: String,
     val source: String,
     val episodes: Int,
     val status: String,
     val airing: Boolean,
-    val aired: AiredResponse,
+    val aired: Aired,
     val duration: String,
     val rating: String,
-    val score: Int,
+    val score: Double,
     val scored_by: Int,
     val rank: Int,
     val popularity: Int,
@@ -29,125 +28,127 @@ data class AnimeDataResponse(
     val background: String,
     val season: String,
     val year: Int,
-    val broadcast: BroadcastResponse,
-    val producers: List<ProducerResponse>,
-    val licensors: List<LicensorResponse>,
-    val studios: List<StudioResponse>,
-    val genres: List<GenreResponse>,
-    val explicit_genres: List<GenreResponse>,
-    val themes: List<ThemeResponse>,
-    val demographics: List<DemographicResponse>,
-    val relations: List<RelationResponse>,
-    val theme: ThemeResponse,
-    val external: List<ExternalResponse>,
-    val streaming: List<StreamingResponse>
+    val broadcast: Broadcast,
+    val producers: List<Producer>,
+    val licensors: List<Any>, // You can define a proper data class if needed
+    val studios: List<Studio>,
+    val genres: List<Genre>,
+    val explicit_genres: List<Any>, // You can define a proper data class if needed
+    val themes: List<Any>, // You can define a proper data class if needed
+    val demographics: List<Demographic>,
+    val relations: List<Relation>,
+    val theme: ThemeFull,
+    val external: List<External>,
+    val streaming: List<Streaming>
 )
 
-data class ImagesResponse(
-    val jpg: ImageTypeResponse,
-    val webp: ImageTypeResponse
+data class ImagesFull(
+    val jpg: Image,
+    val webp: Image
 )
 
-data class ImageTypeResponse(
+data class Image(
     val image_url: String,
     val small_image_url: String,
     val large_image_url: String
 )
 
-data class TrailerResponse(
+data class Trailer(
     val youtube_id: String,
     val url: String,
-    val embed_url: String
+    val embed_url: String,
+    val images: TrailerImages
 )
 
-data class TitleResponse(
+data class TrailerImages(
+    val image_url: String,
+    val small_image_url: String,
+    val medium_image_url: String,
+    val large_image_url: String,
+    val maximum_image_url: String
+)
+
+data class Title(
     val type: String,
     val title: String
 )
 
-data class AiredResponse(
+data class Aired(
     val from: String,
-    val to: String,
-    val prop: AiredPropResponse
-)
-
-data class AiredPropResponse(
-    val from: AiredDateResponse,
-    val to: AiredDateResponse,
+    val to: String?,
+    val prop: AiredProp,
     val string: String
 )
 
-data class AiredDateResponse(
-    val day: Int,
-    val month: Int,
-    val year: Int
+data class AiredProp(
+    val from: AiredDate?,
+    val to: AiredDate?
 )
 
-data class BroadcastResponse(
+data class AiredDate(
+    val day: Int?,
+    val month: Int?,
+    val year: Int?
+)
+
+data class Broadcast(
     val day: String,
     val time: String,
     val timezone: String,
     val string: String
 )
 
-data class ProducerResponse(
+data class Producer(
     val mal_id: Int,
     val type: String,
     val name: String,
     val url: String
 )
 
-data class LicensorResponse(
+data class Studio(
     val mal_id: Int,
     val type: String,
     val name: String,
     val url: String
 )
 
-data class StudioResponse(
+data class Genre(
     val mal_id: Int,
     val type: String,
     val name: String,
     val url: String
 )
 
-data class GenreResponse(
+data class Demographic(
     val mal_id: Int,
     val type: String,
     val name: String,
     val url: String
 )
 
-data class ThemeResponse(
+data class Relation(
+    val relation: String,
+    val entry: List<Entry>
+)
+
+data class Entry(
+    val mal_id: Int,
+    val type: String,
+    val name: String,
+    val url: String
+)
+
+data class ThemeFull(
     val openings: List<String>,
     val endings: List<String>
 )
 
-data class DemographicResponse(
-    val mal_id: Int,
-    val type: String,
+data class External(
     val name: String,
     val url: String
 )
 
-data class RelationResponse(
-    val relation: String,
-    val entry: List<EntryResponse>
-)
-
-data class EntryResponse(
-    val mal_id: Int,
-    val type: String,
-    val name: String,
-    val url: String
-)
-
-data class ExternalResponse(
-    val name: String,
-    val url: String
-)
-
-data class StreamingResponse(
+data class Streaming(
     val name: String,
     val url: String
 )

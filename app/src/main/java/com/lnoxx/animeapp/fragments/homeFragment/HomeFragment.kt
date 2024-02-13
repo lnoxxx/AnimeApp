@@ -2,24 +2,14 @@ package com.lnoxx.animeapp.fragments.homeFragment
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.tabs.TabLayoutMediator
+import com.lnoxx.animeapp.R
 import com.lnoxx.animeapp.databinding.FragmentHomeBinding
 import com.lnoxx.animeapp.fragments.homeFragment.adapters.HomeViewPagerAdapter
-import com.lnoxx.animeapp.fragments.homeFragment.airingFragment.AiringFragment
-import com.lnoxx.animeapp.fragments.homeFragment.popylarityFragment.PopularityFragment
-import com.lnoxx.animeapp.fragments.homeFragment.raitingFragment.RatingFragment
-import com.lnoxx.animeapp.fragments.homeFragment.upcomingFragment.UpcomingFragment
-import com.lnoxx.animeapp.jikanAPI.JikanMainClass
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class HomeFragment : Fragment() {
     private lateinit var viewModel: HomeViewModel
@@ -37,10 +27,10 @@ class HomeFragment : Fragment() {
 
         TabLayoutMediator(binding.HomeTabLayout,binding.HomeViewPager){ tab, position ->
             tab.text = when(position){
-                0 -> "Онгоинги"
-                1 -> "Анонсы"
-                2 -> "Популярные"
-                3 -> "Лучшие"
+                0 -> getString(R.string.airing_title)
+                1 -> getString(R.string.upcoming_title)
+                2 -> getString(R.string.popularity_title)
+                3 -> getString(R.string.rating_title)
                 else -> null
             }
         }.attach()

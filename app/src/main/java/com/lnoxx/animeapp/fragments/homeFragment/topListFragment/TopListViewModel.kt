@@ -1,8 +1,8 @@
-package com.lnoxx.animeapp.fragments.homeFragment.upcomingFragment
+package com.lnoxx.animeapp.fragments.homeFragment.topListFragment
 
 import androidx.lifecycle.ViewModel
 import com.lnoxx.animeapp.jikanAPI.jikanDataClasses.AnimeTopResponse
 
-class UpcomingViewModel : ViewModel() {
+class TopListViewModel : ViewModel() {
     var top: AnimeTopResponse? = null
 }

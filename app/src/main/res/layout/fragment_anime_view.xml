@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -14,28 +15,132 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
-            <androidx.cardview.widget.CardView
-                style="@style/AnimeCardViewStyle"
-                android:layout_width="192dp"
-                android:layout_height="256dp"
-                android:layout_gravity="center_horizontal">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <ImageView
-                    android:id="@+id/AnimeViewImage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/backgroundAnime"
+                    android:layout_width="match_parent"
+                    android:layout_height="320dp"
+                    android:alpha="0.2"
                     android:scaleType="centerCrop"
-                    tools:srcCompat="@tools:sample/backgrounds/scenic" />
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/gradietn_imageview">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp">
+
+                        <ImageView
+                            android:id="@+id/animeViewImage"
+                            android:layout_width="192dp"
+                            android:layout_height="256dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="@string/anime_image"
+                            android:scaleType="centerCrop"
+                            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+                    </androidx.cardview.widget.CardView>
+
+                </FrameLayout>
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/animeViewTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                tools:text="Название аниме" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="8dp"
+                app:cardBackgroundColor="@color/md_theme_light_secondaryContainer"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="16dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/raiting"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="4dp"
+                        android:textAlignment="viewStart"
+                        android:textSize="14sp"
+                        app:drawableLeftCompat="@drawable/round_18_up_rating_24"
+                        tools:text="PG-13 - Teens 13 or older" />
+
+                    <TextView
+                        android:id="@+id/seasonYear"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:drawablePadding="4dp"
+                        android:textSize="14sp"
+                        app:drawableLeftCompat="@drawable/baseline_date_range_24"
+                        tools:text="fall 2023" />
+
+                    <TextView
+                        android:id="@+id/episodeTiming"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:drawablePadding="4dp"
+                        android:textSize="14sp"
+                        app:drawableLeftCompat="@drawable/round_access_time_24"
+                        tools:text="28 эп по 25 минут" />
+
+                    <TextView
+                        android:id="@+id/statusType"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:drawablePadding="4dp"
+                        android:textSize="14sp"
+                        app:drawableLeftCompat="@drawable/baseline_done_24"
+                        tools:text="TV currently airing" />
+                </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <TextView
-                android:id="@+id/AnimeViewTitle"
+                android:id="@+id/studios"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                tools:text="Название аниме" />
+                tools:text="Madhouse" />
+
+            <TextView
+                android:id="@+id/synopsis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="3"
+                tools:text="During their decade-long quest to defeat the Demon King, the members of the hero's party—Himmel himself, the priest Heiter, the dwarf warrior Eisen, and the elven mage Frieren—forge bonds through adventures and battles, creating unforgettable precious memories for most of them.                                                                                                                                                                                                          However, the time that Frieren spends with her comrades is equivalent to merely a fraction of her life, which has lasted over a thousand years. When the party disbands after their victory, Frieren casually returns to her &quot;usual&quot; routine of collecting spells across the continent. Due to her different sense of time, she seemingly holds no strong feelings toward the experiences she went through.                                                                                                                                                                                                          As the years pass, Frieren gradually realizes how her days in the hero's party truly impacted her. Witnessing the deaths of two of her former companions, Frieren begins to regret having taken their presence for granted; she vows to better understand humans and create real personal connections. Although the story of that once memorable journey has long ended, a new tale is about to begin.                                                                                                     " />
+
+            <Button
+                android:id="@+id/moreSynopsysButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:onClick="onClickOpenSynopsys"
+                android:text="Подробнее..." />
+
         </LinearLayout>
     </ScrollView>
 </FrameLayout>

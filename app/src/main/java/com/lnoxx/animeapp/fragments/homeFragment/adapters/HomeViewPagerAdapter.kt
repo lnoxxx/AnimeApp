@@ -4,10 +4,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.lnoxx.animeapp.fragments.homeFragment.airingFragment.AiringFragment
-import com.lnoxx.animeapp.fragments.homeFragment.popylarityFragment.PopularityFragment
-import com.lnoxx.animeapp.fragments.homeFragment.raitingFragment.RatingFragment
-import com.lnoxx.animeapp.fragments.homeFragment.upcomingFragment.UpcomingFragment
+import com.lnoxx.animeapp.fragments.homeFragment.TopTypesConst
+import com.lnoxx.animeapp.fragments.homeFragment.topListFragment.TopListFragment
 
 class HomeViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle)
     : FragmentStateAdapter(fragmentManager, lifecycle){
@@ -18,10 +16,10 @@ class HomeViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycl
 
     override fun createFragment(position: Int): Fragment {
         return when(position){
-            0 -> AiringFragment()
-            1 -> UpcomingFragment()
-            2 -> PopularityFragment()
-            3 -> RatingFragment()
+            0 -> TopListFragment(TopTypesConst.airing)
+            1 -> TopListFragment(TopTypesConst.upcoming)
+            2 -> TopListFragment(TopTypesConst.byPopularity )
+            3 -> TopListFragment(TopTypesConst.byRating)
             else -> throw IllegalArgumentException("Invalid position")
         }
     }

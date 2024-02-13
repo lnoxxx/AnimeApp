@@ -4,4 +4,10 @@
     <string name="bottom_search">Поиск</string>
     <string name="newsimage">NewsImage</string>
     <string name="episodes">серия</string>
+    <string name="types_of_anime_category">Types of Anime Category</string>
+    <string name="anime_image">Аниме изображение</string>
+    <string name="airing_title">Онгоинги</string>
+    <string name="upcoming_title">Анонсы</string>
+    <string name="popularity_title">Самые популярные</string>
+    <string name="rating_title">Лучшие по рейтингу</string>
 </resources>
